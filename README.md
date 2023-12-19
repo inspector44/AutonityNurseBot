@@ -35,7 +35,7 @@ cd ~ && \
 curl -s https://raw.githubusercontent.com/inspector44/AutonityNurseBot/main/cronjob.sh | \
 sed "s/YOUR_TOKEN_HERE/$TOKEN/g; s/YOUR_CHAT_ID_HERE/$CHAT_ID/g; s/YOUR_VALIDATOR_ADDRESS_HERE/$VALIDATOR_ADDRESS/g" > autonity_cronjob.sh && \
 chmod +x autonity_cronjob.sh && \
-(crontab -l 2>/dev/null; echo "*/5 * * * * $PWD/autonity_cronjob.sh") | crontab -
+(crontab -l 2>/dev/null; echo "*/30 * * * * $PWD/autonity_cronjob.sh") | crontab -
 ```
 
 
