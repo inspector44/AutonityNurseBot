@@ -18,7 +18,7 @@ This repository provides a simple yet effective way to monitor the health and st
 6. Add your previously created bot to the channel as an administrator. Make sure to grant it the necessary permissions, especially 'Send Messages'.
 
 ### 3️⃣ Finding the Chat ID of the Channel
-1. Send a message in the channel.
+1. Open your telegram and mention your bot in the channel. Like; hey @mybot :P
 2. Open a browser and visit the following URL (replace YOUR_TOKEN_HERE with the bot token you got from BotFather): https://api.telegram.org/botYOUR_TOKEN_HERE/getUpdates
 It should looks like this; https://api.telegram.org/bot110201543:AAHdqTcvCH1vGWJxfSeofSAs0K5PALDsaw/getUpdates
 4. Look for the "chat" object in the returned JSON. The id field inside this object is your channel's chat ID. It should look something like -1001234567890. Save this ID for later.
