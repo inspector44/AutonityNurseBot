@@ -7,14 +7,18 @@ VALIDATOR_ADDRESS="YOUR_VALIDATOR_ADDRESS_HERE"
 
 # Function to send message to Telegram
 sendMessageToTelegram() {
+    message=$1
+    if [ -z "$message" ]; then
+        message="Error: Command produced no output."
+    fi
     /usr/bin/curl -s -X POST "https://api.telegram.org/bot$TOKEN/sendMessage" \
         -d chat_id="$CHAT_ID" \
-        -d text="$1"
+        -d text="$message"
 }
 
 # Get the status and assign it to the result variable
-validatorInfoResult=$(aut validator info --validator "$VALIDATOR_ADDRESS")
-committeeInfoResult=$(aut protocol get-committee | grep "$VALIDATOR_ADDRESS")
+validatorInfoResult=$(/root/.local/bin/aut validator info --validator "$VALIDATOR_ADDRESS" 2>&1)
+committeeInfoResult=$(/root/.local/bin/aut protocol get-committee | grep "$VALIDATOR_ADDRESS" 2>&1)
 
 # Send the results to the specified Telegram channel
 sendMessageToTelegram "$validatorInfoResult"
